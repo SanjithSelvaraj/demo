@@ -1,0 +1,30 @@
+<h2>Rectangle Creator</h2>
+<p>Count: <input id="count" value="5"></p>
+<button id="create">Create</button>
+<button id="cancel">Cancel</button>
+<script>
+
+document.getElementById('create').onclick = () => {
+  const textbox = document.getElementById('count');
+  const count = parseInt(textbox.value, 10);
+  parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
+  // initiatePopulation();
+}
+
+document.getElementById('cancel').onclick = () => {
+  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+}
+
+window.addEventListener("message", (event) => {
+    const data = "Test data";
+    console.log("got this from the plugin code ", event.data.pluginMessage);
+    const blob = new Blob([event.data.pluginMessage], { type: "application/octet-stream" });
+    let file = URL.createObjectURL(blob);
+    let a=document.createElement('a');
+    a.download='test.zip';
+    a.href=file;
+    a.click();
+  });
+   
+
+</script>

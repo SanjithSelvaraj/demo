@@ -1,0 +1,16 @@
+{
+  "name": "PluginTest",
+  "id": "1336364375682830188",
+  "api": "1.0.0",
+  "main": "code.js",
+  "capabilities": [],
+  "enableProposedApi": true,
+  "editorType": [
+    "figma"
+  ],
+  "ui": "ui.html",
+  "networkAccess": {
+    "allowedDomains": ["*"],
+    "reasoning" : "to test the api"
+  }
+}
